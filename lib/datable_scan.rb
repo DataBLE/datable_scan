@@ -11,7 +11,7 @@ class DataBLEScan
   private
 
   def run_hci_tool_scan
-    ble_scan_pid = fork { exec('hcitool lescan --duplicates') }
+    ble_scan_pid = fork { exec('hcitool lescan --duplicates 1>/dev/null') }
     Process.detach(ble_scan_pid)
   end
 
